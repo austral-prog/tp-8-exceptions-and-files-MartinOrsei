@@ -32,4 +32,11 @@ def merge_files(file1, file2, output):
         # hola
         # mundo
     """
-    pass  # Reemplazar con tu implementación
+    with open(file1, 'r') as archivo1:
+        texto1 = archivo1.read()
+    with open(file2, 'r') as archivo2:
+        texto2 = archivo2.read()
+    if len(texto1) == 0 or len(texto2) == 0:
+        FileNotFoundError
+    with open(output, 'w') as carpeta:
+        carpeta.write(f"{texto1}{texto2}")
