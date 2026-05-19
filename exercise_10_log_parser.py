@@ -42,4 +42,22 @@ def parse_log(filename):
             "WARN": ["lento"],
         }
     """
-    pass  # Reemplazar con tu implementación
+    dic = {}
+    try:
+        with open(filename, 'r') as file:
+            for fila in file:
+                fila_limpia = fila.strip()
+                if not fila_limpia:
+                    continue
+                if not ':' in fila:
+                    ValueError("invalid log line")
+                niveles, mensajes = fila_limpia.split(':',1)
+                nivel = niveles.strip()
+                mensaje = mensajes.strip()
+                if nivel in dic:
+                    dic[nivel].append(mensaje)
+                else:
+                    dic[nivel] = [mensaje]
+        return dic
+    except FileNotFoundError:
+        raise
