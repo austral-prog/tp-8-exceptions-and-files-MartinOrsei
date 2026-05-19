@@ -70,8 +70,8 @@ def process_sales(data):
     """
     for producto,valor in data.items():
 
-    total = sum(valor)
+        total = sum(valor)
 
-    promedio = total / len(valor)
+        promedio = total / len(valor)
 
-    print(f"{producto}: ventas totales ${total:.2f}, promedio ${promedio:.2f}")
+        print(f"{producto}: ventas totales ${total:.2f}, promedio ${promedio:.2f}")
